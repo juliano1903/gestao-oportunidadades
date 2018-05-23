@@ -1,12 +1,9 @@
-package br.com.leilaoeletronico.model;
-
-import java.util.List;
+package br.com.gestaooportunidades.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 import lombok.AllArgsConstructor;
@@ -31,9 +28,6 @@ public class Usuario {
 	private String cpf;
 	
 	private String email;
-	
-	@OneToMany(mappedBy ="usuario")
-	private List<Lance> lances;
 	
 	private String senha;
 }

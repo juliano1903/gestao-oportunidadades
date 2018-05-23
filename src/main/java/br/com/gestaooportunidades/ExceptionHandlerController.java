@@ -1,4 +1,4 @@
-package br.com.leilaoeletronico;
+package br.com.gestaooportunidades;
 
 import java.util.Date;
 

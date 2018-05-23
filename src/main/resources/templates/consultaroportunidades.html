@@ -23,11 +23,17 @@
 				 		<td><span th:text="${oportunidade.empresa.nome}"></span></td>
 				 		<td><span th:text="${oportunidade.nome}"></span></td>
 				 		<td><span th:text="${oportunidade.descricao}"></span></td>
-				 		<td><span th:text="${oportunidade.valorString}"></span></td>
+				 		<td>R$ <span th:text="${oportunidade.valorString}"></span></td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
+
+		<form action="index">
+			<button class="btn pull-right">Voltar</button>
+		</form>
+
 	</div>
+			
 </body>
 </html>

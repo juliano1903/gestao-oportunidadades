@@ -1,4 +1,4 @@
-package br.com.leilaoeletronico;
+package br.com.gestaooportunidades;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

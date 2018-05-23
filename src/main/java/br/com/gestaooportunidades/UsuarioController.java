@@ -1,12 +1,12 @@
-package br.com.leilaoeletronico;
+package br.com.gestaooportunidades;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import br.com.leilaoeletronico.model.Usuario;
-import br.com.leilaoeletronico.service.UsuarioService;
+import br.com.gestaooportunidades.model.Usuario;
+import br.com.gestaooportunidades.service.UsuarioService;
 
 @Controller
 public class UsuarioController {

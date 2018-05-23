@@ -1,4 +1,4 @@
-package br.com.leilaoeletronico.model;
+package br.com.gestaooportunidades.model;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
@@ -18,3 +18,4 @@ public class UsuarioSession {
 		this.usuario = usuario;
 	}
 }
+ 

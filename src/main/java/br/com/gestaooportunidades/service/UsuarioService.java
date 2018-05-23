@@ -1,11 +1,11 @@
-package br.com.leilaoeletronico.service;
+package br.com.gestaooportunidades.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.leilaoeletronico.model.Usuario;
-import br.com.leilaoeletronico.model.UsuarioSession;
-import br.com.leilaoeletronico.repository.UsuarioRepository;
+import br.com.gestaooportunidades.model.Usuario;
+import br.com.gestaooportunidades.model.UsuarioSession;
+import br.com.gestaooportunidades.repository.UsuarioRepository;
 
 @Service
 public class UsuarioService {

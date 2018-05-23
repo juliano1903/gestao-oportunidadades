@@ -10,7 +10,18 @@ insert into empresa (id_empresa, nome, cnpj, nome_fantasia, endereco)
 values (empresa_id_seq.nextval, 'Hewlett-packard Do Brasil Ltda', '61.797.924/0001-55', 'HP', 
 'Av Ipiranga, 6681 Pd 91 Puc | Porto Alegre - , CEP: 90610-001');
 
-insert into oportunidade (id_oportunidade, id_empresa, nome, descricao, valor_string, data_aprovacao, data_reprovacao)
-values(oportunidade_id_seq.nextval, 1, 'Desenvolvedor Java', 'Desenvolver software sob pressão', '800,00', sysdate, null);
+insert into empresa (id_empresa, nome, cnpj, nome_fantasia, endereco) 
+values (empresa_id_seq.nextval, 'Agência qualquer', '54.484.444/0001-55', 'HP', 
+'Av Borges de Medeiros, 6688 | Porto Alegre - , CEP: 90110-050');
 
+insert into oportunidade (id_oportunidade, id_empresa, nome, descricao, valor_string, data_aprovacao, data_reprovacao)
+values(oportunidade_id_seq.nextval, 1, 'Desenvolvedor Java', 'Desenvolver software sob pressão. A preço de banana.', '800,00', sysdate, null);
+
+insert into oportunidade (id_oportunidade, id_empresa, nome, descricao, valor_string, data_aprovacao, data_reprovacao)
+values(oportunidade_id_seq.nextval, 1, 'Desenvolvedor JavaScript', 'Desenvolver software sob pressão. Necessário beber cerveja e jogar video game,
+pois faz parte do pagamento.', '500,00', sysdate, null);
+
+insert into oportunidade (id_oportunidade, id_empresa, nome, descricao, valor_string, data_aprovacao, data_reprovacao)
+values(oportunidade_id_seq.nextval, 1, 'Desenvolvedor Java + JavaScript', 'Desenvolver software deve ser sua vida. 
+Benefícios: metas arrojadas, puff, ambiente descolado.', '300,00', sysdate, null);
 

@@ -1,16 +1,11 @@
-package br.com.leilaoeletronico.service;
+package br.com.gestaooportunidades.service;
 
-import java.util.Date;
-
-import org.hibernate.secure.spi.PermissibleAction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.leilaoeletronico.model.Empresa;
-import br.com.leilaoeletronico.model.Leilao;
-import br.com.leilaoeletronico.repository.EmpresaRepository;
-import br.com.leilaoeletronico.repository.LeilaoRepository;
-
+import br.com.gestaooportunidades.model.Empresa;
+import br.com.gestaooportunidades.repository.EmpresaRepository;
+ 
 @Service
 public class EmpresaService {
 

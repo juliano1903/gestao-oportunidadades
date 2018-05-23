@@ -1,6 +1,4 @@
-package br.com.leilaoeletronico;
-
-import java.util.Date;
+package br.com.gestaooportunidades;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,21 +6,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import br.com.leilaoeletronico.model.CategoriaItem;
-import br.com.leilaoeletronico.model.Empresa;
-import br.com.leilaoeletronico.model.Item;
-import br.com.leilaoeletronico.model.Lance;
-import br.com.leilaoeletronico.model.Leilao;
-import br.com.leilaoeletronico.model.Lote;
-import br.com.leilaoeletronico.model.NaturezaLeilao;
-import br.com.leilaoeletronico.model.Oportunidade;
-import br.com.leilaoeletronico.model.TipoLance;
-import br.com.leilaoeletronico.model.UsuarioSession;
-import br.com.leilaoeletronico.service.EmpresaService;
-import br.com.leilaoeletronico.service.LeilaoService;
-import br.com.leilaoeletronico.service.LoteService;
-import br.com.leilaoeletronico.service.NaturezaLeilaoService;
-import br.com.leilaoeletronico.service.OportunidadeService;
+import br.com.gestaooportunidades.model.Empresa;
+import br.com.gestaooportunidades.model.Oportunidade;
+import br.com.gestaooportunidades.model.UsuarioSession;
+import br.com.gestaooportunidades.service.EmpresaService;
+import br.com.gestaooportunidades.service.OportunidadeService;
 
 @Controller
 public class OportunidadeController {
