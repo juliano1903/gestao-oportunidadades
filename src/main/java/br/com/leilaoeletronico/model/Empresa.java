@@ -30,6 +30,8 @@ public class Empresa {
 	
 	private String nome;
 	
+	private String nomeFantasia;
+	
 	private String cnpj;
 	
 	private String endereco;

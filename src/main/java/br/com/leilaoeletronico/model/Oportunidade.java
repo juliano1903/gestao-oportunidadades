@@ -32,15 +32,14 @@ public class Oportunidade {
 	@JoinColumn(name="id_empresa")
 	private Empresa empresa;
 	
+	private String nome;
+	
 	private String descricao;
 
 	private String valorString;
 	
-	public Date data_aprovacao;
+	public Date dataAprovacao;
 	
-	public Date data_reprovacao;
+	public Date dataReprovacao;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="id_usuario")
-	private Usuario usuario;
 }
