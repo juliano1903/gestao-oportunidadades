@@ -32,13 +32,14 @@
 					 		<td>R$ <span th:text="${oportunidade.valorString}"></span></td>
 					 		<td th:if="${session?.usuarioLogado?.idTipoUsuario == 3} and ${oportunidade.isPendenteAprovacao()}">
 					 			<form action="aprovaoportunidade">
-					 				<button class="btn btn-primary">Aprovar</button>
+					 				<button class="btn btn-primary">Aprovar Vaga</button>
 									<input th:value="${oportunidade.idOportunidade}" type="hidden" name="idOportunidade"/>
 					 			</form>
 					 		</td>
-					 		<td th:if="${session?.usuarioLogado?.idTipoUsuario == 3} and ${oportunidade.isPendenteAprovacao()}">
+					 		<td th:if="${session?.usuarioLogado?.idTipoUsuario == 3} or ${session?.usuarioLogado?.idTipoUsuario == 4}
+					 		and ${oportunidade.isPendenteAprovacao()}">
 					 			<form action="reprovaroportunidade">
-					 				<button class="btn btn-danger">Reprovar</button>
+					 				<button class="btn btn-danger">Cancelar Vaga</button>
 									<input th:value="${oportunidade.idOportunidade}" type="hidden" name="idOportunidade"/>
 					 			</form>
 					 		</td>

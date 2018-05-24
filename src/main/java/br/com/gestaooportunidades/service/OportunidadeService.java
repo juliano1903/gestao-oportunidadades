@@ -22,6 +22,10 @@ public class OportunidadeService {
 	public Iterable<Oportunidade> findAll() {
 		return oportunidadeRepository.findAll();
 	}
+
+	public Iterable<Oportunidade> findAllDisponiveis() {
+		return oportunidadeRepository.findAllDisponiveis();
+	}
 	
 	@Transactional
 	public void apovaOportunidade(Long idOportunidade) {
