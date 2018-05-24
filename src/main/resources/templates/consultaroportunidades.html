@@ -23,28 +23,31 @@
 				</thead>
 				<tbody>
 				 	<tr th:each="oportunidade : ${oportunidades}">
-				 		<td><span th:text="${oportunidade.empresa.nome}"></span></td>
-				 		<td><span th:text="${oportunidade.nome}"></span></td>
-				 		<td><span th:text="${oportunidade.descricao}"></span></td>
-				 		<td>R$ <span th:text="${oportunidade.valorString}"></span></td>
-				 		<td th:if="${session?.usuarioLogado?.idTipoUsuario == 3} and ${oportunidade.isPendenteAprovacao()}">
-				 			<form action="aprovaoportunidade">
-				 				<button class="btn btn-primary">Aprovar</button>
-								<input th:value="${oportunidade.idOportunidade}" type="hidden" name="idOportunidade"/>
-				 			</form>
-				 		</td>
-				 		<td th:if="${session?.usuarioLogado?.idTipoUsuario == 3} and ${oportunidade.isPendenteAprovacao()}">
-				 			<form action="reprovaroportunidade">
-				 				<button class="btn btn-danger">Reprovar</button>
-								<input th:value="${oportunidade.idOportunidade}" type="hidden" name="idOportunidade"/>
-				 			</form>
-				 		</td>
-				 		<td th:if="${session?.usuarioLogado?.idTipoUsuario == 1} and ${!oportunidade.isPendenteAprovacao()}">
-				 			<form action="candidatarse">
-				 				<button class="btn btn-primary">Candidatar-se</button>
-								<input th:value="${oportunidade.idOportunidade}" type="hidden" name="idOportunidade"/>
-				 			</form>
-				 		</td>
+				 		<div th:if="${session?.usuarioLogado?.idTipoUsuario == 1} and ${!oportunidade.isPendenteAprovacao()}
+				 					or ${session?.usuarioLogado?.idTipoUsuario == 3}">
+					 		<td><span th:text="${oportunidade.empresa.nome}"></span></td>
+					 		<td><span th:text="${oportunidade.nome}"></span></td>
+					 		<td><span th:text="${oportunidade.descricao}"></span></td>
+					 		<td>R$ <span th:text="${oportunidade.valorString}"></span></td>
+					 		<td th:if="${session?.usuarioLogado?.idTipoUsuario == 3} and ${oportunidade.isPendenteAprovacao()}">
+					 			<form action="aprovaoportunidade">
+					 				<button class="btn btn-primary">Aprovar</button>
+									<input th:value="${oportunidade.idOportunidade}" type="hidden" name="idOportunidade"/>
+					 			</form>
+					 		</td>
+					 		<td th:if="${session?.usuarioLogado?.idTipoUsuario == 3} and ${oportunidade.isPendenteAprovacao()}">
+					 			<form action="reprovaroportunidade">
+					 				<button class="btn btn-danger">Reprovar</button>
+									<input th:value="${oportunidade.idOportunidade}" type="hidden" name="idOportunidade"/>
+					 			</form>
+					 		</td>
+					 		<td th:if="${session?.usuarioLogado?.idTipoUsuario == 1} and ${!oportunidade.isPendenteAprovacao()}">
+					 			<form action="candidatarse">
+					 				<button class="btn btn-primary">Candidatar-se</button>
+									<input th:value="${oportunidade.idOportunidade}" type="hidden" name="idOportunidade"/>
+					 			</form>
+					 		</td>
+				 		</div>
 					</tr>
 				</tbody>
 			</table>
