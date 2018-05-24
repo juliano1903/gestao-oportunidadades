@@ -28,15 +28,19 @@ public class UsuarioService {
 		return usuarioRepository.findByEmail(email);
 	}
 
-	public boolean logar(String email, String senha) {
-		usuarioSession.setUsuario(usuarioRepository.findByEmailAndSenha(email, senha));
-		if(usuarioSession.getUsuario() == null) {
-			return false;
+	public Usuario logar(String email, String senha) {
+		Usuario usuario = usuarioRepository.findByEmailAndSenha(email, senha);
+		if(usuario != null) {
+			usuarioSession.setUsuario(usuario);
 		}
-		return true;
+		return usuario;
 	}
 	
 	public void setUsuarioSessao (Usuario usuario) {
 		usuarioSession.setUsuario(usuario);
+	}
+	
+	public UsuarioSession getUsuarioSessao() {
+		return usuarioSession;
 	}
 }

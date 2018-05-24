@@ -25,3 +25,14 @@ insert into oportunidade (id_oportunidade, id_empresa, nome, descricao, valor_st
 values(oportunidade_id_seq.nextval, 1, 'Desenvolvedor Java + JavaScript', 'Desenvolver software deve ser sua vida. 
 Benefícios: metas arrojadas, puff, ambiente descolado.', '300,00', sysdate, null);
 
+insert into usuario (id_usuario, nome, cpf, senha, email, id_tipo_usuario)
+values(usuario_id_seq.nextval, 'Aluno da Universidade', '000000000000', 'aluno', 'aluno', 1);
+
+insert into usuario (id_usuario, nome, cpf, senha, email, id_tipo_usuario)
+values(usuario_id_seq.nextval, 'Empresa Parceira', '000000000000', 'empresa', 'empresa', 2);
+
+insert into usuario (id_usuario, nome, cpf, senha, email, id_tipo_usuario)
+values(usuario_id_seq.nextval, 'Diretor da Universidade', '000000000000', 'diretor', 'diretor', 3);
+
+insert into usuario (id_usuario, nome, cpf, senha, email, id_tipo_usuario)
+values(usuario_id_seq.nextval, 'Secretaria da Universidade', '000000000000', 'secretaria', 'secretaria', 4);

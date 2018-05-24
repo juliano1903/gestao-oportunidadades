@@ -9,6 +9,10 @@
    ##################################################################### */
    
 $(function() {
+	
+	$( document ).ready(function() {
+	    $( "#open-modal" ).click();
+	});
     
     var $formLogin = $('#login-form');
     var $formLost = $('#lost-form');

@@ -7,6 +7,8 @@
 	</head>
 	<body>
 		<div class="container">
+		<div class="container">Usuario logado: <span th:text="${session?.usuarioLogado?.nome}"></span>
+		</div>
 		<div class="jumbotron" align="center" style="margin-top: 50px;">
 			<h3>Cadastrar Empresa</h3>
 			<form class="form-horizontal" action="salvarempresa">

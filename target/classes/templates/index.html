@@ -6,21 +6,29 @@
 	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 	</head>
 	<body>
+		<div class="container">Usuario logado: <span th:text="${session?.usuarioLogado?.nome}"></span>
+		</div>
 		<div class="container" >
 			<div class="jumbotron" align="center" style="margin-top: 50px;">
 				<h3>Seja bem vindo ao Sistema de Gestão de Oportunidades</h3>
 				<div align="center">
-					<div class="row form-group">
-						<a href="cadastrarempresa" class="btn btn-lg btn-primary">Cadastrar Empresa</a>
+<!-- 						Aluno -->
+					<div th:if="${session?.usuarioLogado?.idTipoUsuario == 1} or
+								${session?.usuarioLogado?.idTipoUsuario == 2} or
+								${session?.usuarioLogado?.idTipoUsuario == 3} " class="row form-group">
+						<a href="consultaroportunidades" class="btn btn-lg btn-primary">Consultar Oportunidades</a>
 					</div>
-					
-					<div class="row form-group">
+
+<!-- 					Empresa Parceira -->
+					<div th:if="${session?.usuarioLogado?.idTipoUsuario == 2}" class="row form-group">
 						<a href="cadastraroportunidade" class="btn btn-lg btn-primary">Cadastrar Oportunidade</a>
 					</div>
 					
-					<div class="row form-group">
-						<a href="consultaroportunidades" class="btn btn-lg btn-primary">Consultar Oportunidades</a>
+<!-- 					Secretaria da Universidade -->
+					<div th:if="${session?.usuarioLogado?.idTipoUsuario == 4}"  class="row form-group">
+						<a href="cadastrarempresa" class="btn btn-lg btn-primary">Cadastrar Empresa</a>
 					</div>
+					
 				</div>
 			</div>
 		</div>

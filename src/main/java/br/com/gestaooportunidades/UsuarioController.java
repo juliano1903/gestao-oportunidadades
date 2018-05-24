@@ -1,7 +1,10 @@
 package br.com.gestaooportunidades;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -38,9 +41,11 @@ public class UsuarioController {
 	
 	@RequestMapping("login")
 	public String login(@RequestParam("email") String email,
-						@RequestParam("senha") String senha) {
-		
-		if(usuarioService.logar(email, senha)) {
+						@RequestParam("senha") String senha,
+						Model model, HttpSession session) {
+		Usuario usuario = usuarioService.logar(email, senha);
+	    session.setAttribute("usuarioLogado", usuario);
+		if(usuario != null) {
 			return "redirect:index";
 		}
 		return "redirect:/";
