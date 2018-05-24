@@ -24,7 +24,8 @@
 				<tbody>
 				 	<tr th:each="oportunidade : ${oportunidades}">
 				 		<div th:if="${session?.usuarioLogado?.idTipoUsuario == 1} and ${!oportunidade.isPendenteAprovacao()}
-				 					or ${session?.usuarioLogado?.idTipoUsuario == 3}">
+				 					or ${session?.usuarioLogado?.idTipoUsuario == 3}
+				 					or ${session?.usuarioLogado?.idTipoUsuario == 4}">
 					 		<td><span th:text="${oportunidade.empresa.nome}"></span></td>
 					 		<td><span th:text="${oportunidade.nome}"></span></td>
 					 		<td><span th:text="${oportunidade.descricao}"></span></td>

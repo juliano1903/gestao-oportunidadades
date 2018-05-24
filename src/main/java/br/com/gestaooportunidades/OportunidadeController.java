@@ -54,9 +54,15 @@ public class OportunidadeController {
 		oportunidadeService.reprovaOportunidade(idOportunidade);
 		return "redirect:consultaroportunidades";
 	}
+	
+	@RequestMapping("cadastrarempresa")
+	public String cadastrarEmpresa(Model model) {
+		model.addAttribute("empresas", empresaService.findAll());
+		return "cadastrarempresa";
+	}
 
 	@RequestMapping("salvarempresa")
-	public String cadastrarEmpresa(@RequestParam("nome") String nome, @RequestParam("nomeFantasia") String nomeFantasia, @RequestParam("cnpj") String cnpj,
+	public String salvarEmpresa(@RequestParam("nome") String nome, @RequestParam("nomeFantasia") String nomeFantasia, @RequestParam("cnpj") String cnpj,
 			@RequestParam("endereco") String endereco) {
 		empresaService.save(new Empresa().builder()
 										.nome(nome)
@@ -68,7 +74,7 @@ public class OportunidadeController {
 	}
 
 	@RequestMapping("cadastraroportunidade")
-	public String cadastrarEmpresa(Model model) {
+	public String cadastrarOportunidade(Model model) {
 		empresaService.findAll();
 		model.addAttribute("empresas", empresaService.findAll());
 		return "cadastraroportunidade";

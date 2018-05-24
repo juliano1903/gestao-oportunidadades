@@ -14,10 +14,8 @@
 			<div class="jumbotron" align="center" style="margin-top: 50px;">
 				<h3>Seja bem vindo ao Sistema de Gestão de Oportunidades</h3>
 				<div align="center">
-<!-- 						Aluno -->
-					<div th:if="${session?.usuarioLogado?.idTipoUsuario == 1} or
-								${session?.usuarioLogado?.idTipoUsuario == 2} or
-								${session?.usuarioLogado?.idTipoUsuario == 3} " class="row form-group">
+
+					<div class="row form-group">
 						<a href="consultaroportunidades" class="btn btn-lg btn-primary">Consultar Oportunidades</a>
 					</div>
 
