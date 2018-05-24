@@ -7,6 +7,8 @@
 	</head>
 	<body>
 		<div class="container">Usuario logado: <span th:text="${session?.usuarioLogado?.nome}"></span>
+		<span th:text="${WelcomeMessage}"></span>
+		<span th:text="${exception?.message}"></span>
 		</div>
 		<div class="container" >
 			<div class="jumbotron" align="center" style="margin-top: 50px;">
