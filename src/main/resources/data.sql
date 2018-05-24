@@ -19,7 +19,7 @@ values(oportunidade_id_seq.nextval, 1, 'Desenvolvedor Java', 'Desenvolver softwa
 
 insert into oportunidade (id_oportunidade, id_empresa, nome, descricao, valor_string, data_aprovacao, data_reprovacao)
 values(oportunidade_id_seq.nextval, 1, 'Desenvolvedor JavaScript', 'Desenvolver software sob pressão. Necessário beber cerveja e jogar video game,
-pois faz parte do pagamento.', '500,00', sysdate, null);
+pois faz parte do pagamento.', '500,00', null, null);
 
 insert into oportunidade (id_oportunidade, id_empresa, nome, descricao, valor_string, data_aprovacao, data_reprovacao)
 values(oportunidade_id_seq.nextval, 1, 'Desenvolvedor Java + JavaScript', 'Desenvolver software deve ser sua vida. 

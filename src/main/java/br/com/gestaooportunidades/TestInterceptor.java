@@ -16,7 +16,7 @@ public class TestInterceptor implements HandlerInterceptor {
 
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView)
             throws Exception {
-    	modelAndView.addObject("WelcomeMessage", "Teste model and View");
+//    	modelAndView.addObject("WelcomeMessage", "Teste model and View");
         System.out.println("this is interceptor, postHandle method");
     }
 

@@ -42,4 +42,7 @@ public class Oportunidade {
 	
 	public Date dataReprovacao;
 	
+	public boolean isPendenteAprovacao() {
+		return dataReprovacao == null && dataAprovacao == null;
+	}
 }

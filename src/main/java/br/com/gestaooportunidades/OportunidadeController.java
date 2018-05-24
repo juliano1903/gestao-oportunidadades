@@ -1,5 +1,7 @@
 package br.com.gestaooportunidades;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,9 +37,22 @@ public class OportunidadeController {
 		return "login";
 	}
 
-	@RequestMapping("cadastrarempresa")
-	public String criarLote(Model model) {
-		return "cadastrarempresa";
+	@RequestMapping("aprovaoportunidade")
+	public String aprovaOportunidade(@RequestParam("idOportunidade") Long idOportunidade, Model model) {
+		oportunidadeService.apovaOportunidade(idOportunidade);
+		return "redirect:consultaroportunidades";
+	}
+
+	@RequestMapping("candidatarse")
+	public String candidatarSeOportunidade(@RequestParam("idOportunidade") Long idOportunidade, Model model) {
+		oportunidadeService.apovaOportunidade(idOportunidade);
+		return "redirect:consultaroportunidades";
+	}
+
+	@RequestMapping("reprovaroportunidade")
+	public String reprovaOportunidade(@RequestParam("idOportunidade") Long idOportunidade, Model model) {
+		oportunidadeService.reprovaOportunidade(idOportunidade);
+		return "redirect:consultaroportunidades";
 	}
 
 	@RequestMapping("salvarempresa")
@@ -60,7 +75,7 @@ public class OportunidadeController {
 	}
 
 	@RequestMapping("salvaroportunidade")
-	public String criarItem(@RequestParam("valorString") String valorString,
+	public String salvaOportunidade(@RequestParam("valorString") String valorString,
 							@RequestParam("nome") String nome, 
 							@RequestParam("descricao") String descricao, 
 							@RequestParam("idEmpresa") Long idEmpresa) {
@@ -76,7 +91,7 @@ public class OportunidadeController {
 	}
 
 	@RequestMapping("consultaroportunidades")
-	public String buscaLeiloes(Model model) {
+	public String cansultaOportunidade(Model model) {
 		Iterable<Oportunidade> oportunidades = oportunidadeService.findAll();
 		model.addAttribute("oportunidades", oportunidades);
 		return "consultaroportunidades";
