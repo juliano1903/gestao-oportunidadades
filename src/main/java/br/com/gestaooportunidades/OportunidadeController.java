@@ -2,6 +2,8 @@ package br.com.gestaooportunidades;
 
 import java.util.Date;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import br.com.gestaooportunidades.model.Empresa;
 import br.com.gestaooportunidades.model.Oportunidade;
+import br.com.gestaooportunidades.model.Usuario;
 import br.com.gestaooportunidades.model.UsuarioSession;
 import br.com.gestaooportunidades.service.EmpresaService;
 import br.com.gestaooportunidades.service.OportunidadeService;
@@ -97,8 +100,16 @@ public class OportunidadeController {
 	}
 
 	@RequestMapping("consultaroportunidades")
-	public String cansultaOportunidade(Model model) {
-		Iterable<Oportunidade> oportunidades = oportunidadeService.findAll();
+	public String cansultaOportunidade(Model model, HttpSession session) {
+		Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+		Iterable<Oportunidade> oportunidades;
+		
+		if(usuario.getIdTipoUsuario().equals(new Long(1l))) {
+			oportunidades = oportunidadeService.findAllDisponiveis();
+		} else {
+			oportunidades = oportunidadeService.findAll();
+		}
+		
 		model.addAttribute("oportunidades", oportunidades);
 		return "consultaroportunidades";
 	}

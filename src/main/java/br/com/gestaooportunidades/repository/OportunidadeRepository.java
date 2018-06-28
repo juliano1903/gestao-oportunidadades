@@ -23,4 +23,9 @@ public interface OportunidadeRepository extends JpaRepository<Oportunidade, Long
 			+ "set op.dataReprovacao = :dataReprovacao "
 			+ "where op.idOportunidade = :idOportunidade")
 	public void udateDataReprovacao(@Param("idOportunidade") Long idOportunidade, @Param("dataReprovacao") Date dataReprovacao);
+
+	@Query("select op from Oportunidade op "
+			+ "where op.dataAprovacao != null "
+			+ "and op.dataReprovacao = null ")
+	public Iterable<Oportunidade> findAllDisponiveis();
 }
