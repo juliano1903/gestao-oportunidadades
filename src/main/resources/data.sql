@@ -26,13 +26,13 @@ values(oportunidade_id_seq.nextval, 1, 'Desenvolvedor Java + JavaScript', 'Desen
 Benefícios: metas arrojadas, puff, ambiente descolado.', '300,00', sysdate, null);
 
 insert into usuario (id_usuario, nome, cpf, senha, email, id_tipo_usuario)
-values(usuario_id_seq.nextval, 'Aluno da Universidade', '000000000000', 'aluno', 'aluno', 1);
+values(usuario_id_seq.nextval, 'Aluno da Universidade', '000000000000', '1', '1', 1);
 
 insert into usuario (id_usuario, nome, cpf, senha, email, id_tipo_usuario)
-values(usuario_id_seq.nextval, 'Empresa Parceira', '000000000000', 'empresa', 'empresa', 2);
+values(usuario_id_seq.nextval, 'Empresa Parceira', '000000000000', '2', '2', 2);
 
 insert into usuario (id_usuario, nome, cpf, senha, email, id_tipo_usuario)
-values(usuario_id_seq.nextval, 'Diretor da Universidade', '000000000000', 'diretor', 'diretor', 3);
+values(usuario_id_seq.nextval, 'Diretor da Universidade', '000000000000', '3', '3', 3);
 
 insert into usuario (id_usuario, nome, cpf, senha, email, id_tipo_usuario)
-values(usuario_id_seq.nextval, 'Secretaria da Universidade', '000000000000', 'secretaria', 'secretaria', 4);
+values(usuario_id_seq.nextval, 'Secretaria da Universidade', '000000000000', '4', '4', 4);

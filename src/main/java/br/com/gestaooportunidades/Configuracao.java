@@ -14,6 +14,7 @@ public class Configuracao extends WebMvcConfigurerAdapter{
     }
 	
 	public static void main(String[] args) {
+		System.setProperty("spring.devtools.restart.enabled", "false");
 		SpringApplication.run(Configuracao.class, args);
 	}
 }

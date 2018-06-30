@@ -43,7 +43,9 @@
 									<input th:value="${oportunidade.idOportunidade}" type="hidden" name="idOportunidade"/>
 					 			</form>
 					 		</td>
-					 		<td th:if="${session?.usuarioLogado?.idTipoUsuario == 1} and ${!oportunidade.isPendenteAprovacao()}">
+					 		<td th:if="${session?.usuarioLogado?.idTipoUsuario == 1} 
+					 			and ${!oportunidade.isPendenteAprovacao()}
+					 			and ${!oportunidade.isCadidatoOportunidade()}">
 					 			<form action="candidatarse">
 					 				<button class="btn btn-primary">Candidatar-se</button>
 									<input th:value="${oportunidade.idOportunidade}" type="hidden" name="idOportunidade"/>
