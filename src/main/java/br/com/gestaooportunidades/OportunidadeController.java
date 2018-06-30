@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import br.com.gestaooportunidades.model.Empresa;
 import br.com.gestaooportunidades.model.Oportunidade;
 import br.com.gestaooportunidades.model.Usuario;
-import br.com.gestaooportunidades.model.UsuarioOportunidade;
 import br.com.gestaooportunidades.service.EmpresaService;
 import br.com.gestaooportunidades.service.OportunidadeService;
 import br.com.gestaooportunidades.service.UsuarioOportunidadeService;
@@ -41,12 +40,6 @@ public class OportunidadeController {
 	@RequestMapping("aprovaoportunidade")
 	public String aprovaOportunidade(@RequestParam("idOportunidade") Long idOportunidade, Model model) {
 		oportunidadeService.apovaOportunidade(idOportunidade);
-		return "redirect:consultaroportunidades";
-	}
-
-	@RequestMapping("candidatarse")
-	public String candidatarSeOportunidade(@RequestParam("idOportunidade") Long idOportunidade, Model model) {
-		usuarioOportunidadeService.cadastrarSeOportunidade(idOportunidade);
 		return "redirect:consultaroportunidades";
 	}
 
@@ -97,8 +90,8 @@ public class OportunidadeController {
 		return "redirect:cadastraroportunidade";
 	}
 
-	@RequestMapping("consultaroportunidades")
-	public String cansultaOportunidade(Model model, HttpSession session) {
+	@RequestMapping("empresaconsultaroportunidades")
+	public String empresaConsultaOportunidade(Model model, HttpSession session) {
 		Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
 		Iterable<Oportunidade> oportunidades;
 		
@@ -111,20 +104,5 @@ public class OportunidadeController {
 		
 		model.addAttribute("oportunidades", oportunidades);
 		return "consultaroportunidades";
-	}
-	
-	@RequestMapping("consultarcandidaturas")
-	public String consultarCandidaturas(Model model, HttpSession session) {
-		Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
-		Iterable<UsuarioOportunidade> oportunidades = usuarioOportunidadeService.findAllByIdUsuario();
-		model.addAttribute("candidaturas", oportunidades);
-		return "consultarcandidaturas";
-	}
-	
-	@RequestMapping("cancelarcandidatura")
-	public String cancelarCandidatura(@RequestParam("idOportunidade") Long idUsuarioOportunidade, Model model, HttpSession session) {
-		Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
-		usuarioOportunidadeService.cancelarCandidatura(idUsuarioOportunidade);
-		return "redirect:consultarcandidaturas";
 	}
 }

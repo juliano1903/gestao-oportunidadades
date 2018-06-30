@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Gestão de Oportunidades</title>
-<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
 	<div class="container">
@@ -18,33 +18,18 @@
 						<th>Vaga</th>
 						<th>Descrição</th>
 						<th>Bolsa</th>
-						<th th:if="${session?.usuarioLogado?.idTipoUsuario == 3}">Status</th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
 				 	<tr th:each="oportunidade : ${oportunidades}">
-				 		<div th:if="${session?.usuarioLogado?.idTipoUsuario == 1} and ${!oportunidade.isPendenteAprovacao()}
-				 					or ${session?.usuarioLogado?.idTipoUsuario != 1}">
+				 		<div th:if="${!oportunidade.isPendenteAprovacao()}">
 					 		<td><span th:text="${oportunidade.empresa.nome}"></span></td>
 					 		<td><span th:text="${oportunidade.nome}"></span></td>
 					 		<td><span th:text="${oportunidade.descricao}"></span></td>
 					 		<td>R$ <span th:text="${oportunidade.valorString}"></span></td>
-					 		<td th:if="${session?.usuarioLogado?.idTipoUsuario == 3} and ${oportunidade.isPendenteAprovacao()}">
-					 			<form action="aprovaoportunidade">
-					 				<button class="btn btn-primary">Aprovar Vaga</button>
-									<input th:value="${oportunidade.idOportunidade}" type="hidden" name="idOportunidade"/>
-					 			</form>
-					 		</td>
-					 		<td th:if="${session?.usuarioLogado?.idTipoUsuario == 3} or ${session?.usuarioLogado?.idTipoUsuario == 4}
-					 		and ${oportunidade.isPendenteAprovacao()}">
-					 			<form action="reprovaroportunidade">
-					 				<button class="btn btn-danger">Cancelar Vaga</button>
-									<input th:value="${oportunidade.idOportunidade}" type="hidden" name="idOportunidade"/>
-					 			</form>
-					 		</td>
-					 		<td th:if="${session?.usuarioLogado?.idTipoUsuario == 1} 
-					 			and ${!oportunidade.isPendenteAprovacao()}
-					 			and ${!oportunidade.isCadidatoOportunidade()}">
+					 		<td th:if="${!oportunidade.isPendenteAprovacao()}
+					 						and ${!oportunidade.isCadidatoOportunidade()}">
 					 			<form action="candidatarse">
 					 				<button class="btn btn-primary">Candidatar-se</button>
 									<input th:value="${oportunidade.idOportunidade}" type="hidden" name="idOportunidade"/>
@@ -56,7 +41,7 @@
 			</table>
 		</div>
 
-		<form action="index">
+		<form action="../index">
 			<button class="btn pull-right">Voltar</button>
 		</form>
 

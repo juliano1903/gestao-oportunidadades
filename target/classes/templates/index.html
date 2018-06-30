@@ -13,27 +13,43 @@
 		<div class="container" >
 			<div class="jumbotron" align="center" style="margin-top: 50px;">
 				<h3>Seja bem vindo ao Sistema de Gestão de Oportunidades</h3>
-				<div align="center">
-
+				
+<!-- 				Aluno -->
+				<div th:if="${session?.usuarioLogado?.idTipoUsuario == 1}" align="center">
 					<div class="row form-group">
-						<a href="consultaroportunidades" class="btn btn-lg btn-primary">Consultar Oportunidades</a>
+						<a href="aluno/consultaroportunidades" class="btn btn-lg btn-primary">Consultar Oportunidades</a>
 					</div>
 					
 					<div class="row form-group">
-						<a href="consultarcandidaturas" class="btn btn-lg btn-primary">Minhas Candidaturas</a>
+						<a href="aluno/consultarcandidaturas" class="btn btn-lg btn-primary">Minhas Candidaturas</a>
 					</div>
-
-<!-- 					Empresa Parceira -->
-					<div th:if="${session?.usuarioLogado?.idTipoUsuario == 2}" class="row form-group">
-						<a href="cadastraroportunidade" class="btn btn-lg btn-primary">Cadastrar Oportunidade</a>
-					</div>
-					
-<!-- 					Secretaria da Universidade -->
-					<div th:if="${session?.usuarioLogado?.idTipoUsuario == 4}"  class="row form-group">
-						<a href="cadastrarempresa" class="btn btn-lg btn-primary">Cadastrar Empresa</a>
-					</div>
-					
 				</div>
+				
+<!-- 					Empresa Parceira -->
+				<div th:if="${session?.usuarioLogado?.idTipoUsuario == 2}" align="center">
+					<div class="row form-group">
+						<a href="empresaconsultaroportunidades" class="btn btn-lg btn-primary">Consultar Oportunidades</a>
+					</div>
+
+					<div class="row form-group">
+						<a href="empresacadastraroportunidade" class="btn btn-lg btn-primary">Cadastrar Oportunidade</a>
+					</div>
+				</div>
+
+<!-- 					Diretor da Universidade -->
+				<div th:if="${session?.usuarioLogado?.idTipoUsuario == 3}" align="center">
+					<div class="row form-group">
+						<a href="diretorconsultaroportunidades" class="btn btn-lg btn-primary">Consultar Oportunidades</a>
+					</div>
+				</div>
+				
+<!-- 					Secretaria da Universidade -->
+				<div th:if="${session?.usuarioLogado?.idTipoUsuario == 4}" align="center">
+					<div class="row form-group">
+						<a href="secretariacadastrarempresa" class="btn btn-lg btn-primary">Cadastrar Empresa</a>
+					</div>
+				</div>				
+				
 			</div>
 		</div>
 	    
