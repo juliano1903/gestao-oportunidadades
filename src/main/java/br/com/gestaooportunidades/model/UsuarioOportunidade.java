@@ -39,4 +39,12 @@ public class UsuarioOportunidade {
 	
 	private Date dataCandidatura;
 	
+	private Date dataCancelamento;
+	
+	public String status() {
+		if(dataCancelamento != null)
+			return "Cancelada";
+		return "Ativa";
+	}
+	
 }

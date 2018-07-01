@@ -1,6 +1,11 @@
 package br.com.gestaooportunidades.service;
 
+import java.util.Date;
+
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 
 import br.com.gestaooportunidades.model.Oportunidade;
@@ -44,7 +49,22 @@ public class UsuarioOportunidadeService {
 		return oportunidades;
 	}
 
+	public Iterable<UsuarioOportunidade> consultaCandidatura(Long idOportunidade) {
+		return usuarioOportunidadeRepository
+		.findByIdOportunidade(idOportunidade);
+	}
+
+	@Transactional
 	public void cancelarCandidatura(Long idUsuarioOportunidade) {
-		usuarioOportunidadeRepository.delete(idUsuarioOportunidade);
+		usuarioOportunidadeRepository.udateDataCancelamentoByIdUsuarioOportunidade(idUsuarioOportunidade, new Date());
+	}
+
+	public void deleteByIdOportunidade(Long idOportunidade) {
+		usuarioOportunidadeRepository.deleteByOportunidade(new Oportunidade().builder().idOportunidade(idOportunidade).build());
+	}
+	
+	@Modifying
+	public void udateDataCancelamentoByIdOportunidade(Long idOportunidade, Date dataCancelamento) {
+		usuarioOportunidadeRepository.udateDataCancelamentoByIdOportunidade(idOportunidade, dataCancelamento);
 	}
 }

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Gestão de Oportunidades</title>
+<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+	<div class="container">
+		<div class="container">Usuario logado: <span th:text="${session?.usuarioLogado?.nome}"></span>
+		</div>		
+		<div class="jumbotron" align="center" style="margin-top: 50px;">
+			<h3>Candidatos</h3>
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>Nome</th>
+						<th>Email</th>
+						<th>CPF</th>
+						<th>Status da Candidatura</th>
+					</tr>
+				</thead>
+				<tbody>
+				 	<tr th:each="candidato : ${candidatosOportunidade}">
+				 		<div>
+					 		<td><span th:text="${candidato.usuario.nome}"></span></td>
+					 		<td><span th:text="${candidato.usuario.email}"></span></td>
+					 		<td><span th:text="${candidato.usuario.cpf}"></span></td>
+					 		<td><span th:text="${candidato.status()}"></span></td>
+				 		</div>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<form action="/empresa/consultaroportunidades">
+			<button class="btn pull-right">Voltar</button>
+		</form>
+
+	</div>
+			
+</body>
+</html>

@@ -35,12 +35,8 @@ public class AlunoController {
 		Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
 		Iterable<Oportunidade> oportunidades;
 		
-		if(usuario.getIdTipoUsuario().equals(new Long(1l))) {
-			oportunidades = oportunidadeService.findAllDisponiveis();
-			usuarioOportunidadeService.consultaCandidatura(oportunidades);
-		} else {
-			oportunidades = oportunidadeService.findAll();
-		}
+		oportunidades = oportunidadeService.findAllDisponiveis();
+	    usuarioOportunidadeService.consultaCandidatura(oportunidades);
 		
 		model.addAttribute("oportunidades", oportunidades);
 		return "aluno/consultaroportunidades";

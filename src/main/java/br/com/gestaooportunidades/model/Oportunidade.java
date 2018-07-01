@@ -43,11 +43,23 @@ public class Oportunidade {
 	
 	public Date dataReprovacao;
 	
+	public Date dataCancelamento;
+	
 	@Transient
 	public boolean cadidatoOportunidade;
 
 	public boolean isPendenteAprovacao() {
 		return dataReprovacao == null && dataAprovacao == null;
+	}
+	
+	public String status() {
+		if(dataReprovacao != null)
+			return "Reprovada";
+		if(dataReprovacao == null && dataAprovacao == null)
+			return "Pendente de Aprovação";
+		if(dataCancelamento != null)
+			return"Cancelada";
+		return "Ativa";
 	}
 	
 }

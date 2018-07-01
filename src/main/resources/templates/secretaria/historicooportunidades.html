@@ -10,7 +10,7 @@
 		<div class="container">Usuario logado: <span th:text="${session?.usuarioLogado?.nome}"></span>
 		</div>		
 		<div class="jumbotron" align="center" style="margin-top: 50px;">
-			<h3>Minhas Candidaturas</h3>
+			<h3>Oportunidades</h3>
 			<table class="table table-hover">
 				<thead>
 					<tr>
@@ -18,22 +18,27 @@
 						<th>Vaga</th>
 						<th>Descrição</th>
 						<th>Bolsa</th>
-						<th>Status</th>
+						<th></th>
 						<th></th>
 					</tr>
 				</thead>
 				<tbody>
-				 	<tr th:each="candidatura : ${candidaturas}">
+				 	<tr th:each="oportunidade : ${oportunidades}">
 				 		<div>
-					 		<td><span th:text="${candidatura.oportunidade.empresa.nome}"></span></td>
-					 		<td><span th:text="${candidatura.oportunidade.nome}"></span></td>
-					 		<td><span th:text="${candidatura.oportunidade.descricao}"></span></td>
-					 		<td>R$ <span th:text="${candidatura.oportunidade.valorString}"></span></td>
-					 		<td><span th:text="${candidatura.status()}"></span></td>
+					 		<td><span th:text="${oportunidade.empresa.nome}"></span></td>
+					 		<td><span th:text="${oportunidade.nome}"></span></td>
+					 		<td><span th:text="${oportunidade.descricao}"></span></td>
+					 		<td>R$ <span th:text="${oportunidade.valorString}"></span></td>
 					 		<td>
-					 			<form th:if="${candidatura.dataCancelamento == null}" action="cancelarcandidatura">
-					 				<button class="btn btn-danger">Cancelar Candidatura</button>
-									<input th:value="${candidatura.idUsuarioOportunidade}" type="hidden" name="idOportunidade"/>
+					 			<form action="consultarcandidatos">
+					 				<button class="btn btn-primary">Candidatos</button>
+									<input th:value="${oportunidade.idOportunidade}" type="hidden" name="idOportunidade"/>
+					 			</form>
+					 		</td>
+					 		<td>
+					 			<form action="cancelaroportunidade">
+					 				<button class="btn btn-danger">Cancelar Vaga</button>
+									<input th:value="${oportunidade.idOportunidade}" type="hidden" name="idOportunidade"/>
 					 			</form>
 					 		</td>
 				 		</div>

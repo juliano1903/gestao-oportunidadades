@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>E-Leilão</title>
+	<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	</head>
+	<body>
+		<div class="container">
+		<div class="container">Usuario logado: <span th:text="${session?.usuarioLogado?.nome}"></span>
+		</div>
+		<div class="jumbotron" align="center" style="margin-top: 50px;">
+			<h3>Cadastrar Oportunidade</h3>
+			<form class="form-horizontal" action="salvaroportunidade">
+				<div class="form-group">
+					<label class="control-label col-sm-2">Empresa:</label> 
+					<div class="col-sm-5">
+							<select name="idEmpresa" class="form-control" required="required">
+							  <option th:each="empresa : ${empresas}" 
+							          th:value="${empresa.idEmpresa}" 
+							          th:text="${empresa.nome}">Wireframe</option>
+							</select>					
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2">Vaga:</label>
+					<div class='col-sm-5'>
+	                    <textarea name="nome" class="form-control" required="required"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2">Descrição da vaga:</label>
+					<div class='col-sm-5'>
+	                    <textarea name="descricao" class="form-control" required="required"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2">Valor:</label>
+					<div class='col-sm-5'>
+	                    <input type='text' name="valorString" class="form-control" required="required"/>
+					</div>
+				</div>
+				<button class="btn btn-primary">Cadastrar</button>
+			</form>
+		</div>
+		<form action="../index">
+			<button class="btn pull-right">Voltar</button>
+		</form>
+	</div>
+	    
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	    <script src="bootstrap/js/bootstrap.min.js"></script>
+	
+	</body>
+</html>

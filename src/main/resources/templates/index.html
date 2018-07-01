@@ -28,25 +28,37 @@
 <!-- 					Empresa Parceira -->
 				<div th:if="${session?.usuarioLogado?.idTipoUsuario == 2}" align="center">
 					<div class="row form-group">
-						<a href="empresaconsultaroportunidades" class="btn btn-lg btn-primary">Consultar Oportunidades</a>
+						<a href="empresa/consultaroportunidades" class="btn btn-lg btn-primary">Consultar Oportunidades</a>
 					</div>
 
 					<div class="row form-group">
-						<a href="empresacadastraroportunidade" class="btn btn-lg btn-primary">Cadastrar Oportunidade</a>
+						<a href="empresa/cadastraroportunidade" class="btn btn-lg btn-primary">Cadastrar Oportunidade</a>
 					</div>
 				</div>
 
 <!-- 					Diretor da Universidade -->
 				<div th:if="${session?.usuarioLogado?.idTipoUsuario == 3}" align="center">
 					<div class="row form-group">
-						<a href="diretorconsultaroportunidades" class="btn btn-lg btn-primary">Consultar Oportunidades</a>
+						<a href="diretor/consultaroportunidades" class="btn btn-lg btn-primary">Consultar Oportunidades</a>
+					</div>
+					
+					<div class="row form-group">
+						<a href="diretor/selecionarempresa" class="btn btn-lg btn-primary">Histórico de Oportunidades</a>
 					</div>
 				</div>
 				
 <!-- 					Secretaria da Universidade -->
 				<div th:if="${session?.usuarioLogado?.idTipoUsuario == 4}" align="center">
 					<div class="row form-group">
-						<a href="secretariacadastrarempresa" class="btn btn-lg btn-primary">Cadastrar Empresa</a>
+						<a href="secretaria/cadastrarempresa" class="btn btn-lg btn-primary">Cadastrar Empresa</a>
+					</div>
+					
+					<div class="row form-group">
+						<a href="secretaria/consultaroportunidades" class="btn btn-lg btn-primary">Consultar Oportunidades</a>
+					</div>
+					
+					<div class="row form-group">
+						<a href="secretaria/selecionarempresa" class="btn btn-lg btn-primary">Histórico de Oportunidades</a>
 					</div>
 				</div>				
 				
