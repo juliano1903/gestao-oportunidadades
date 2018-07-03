@@ -37,4 +37,5 @@ public interface OportunidadeRepository extends JpaRepository<Oportunidade, Long
 	public Iterable<Oportunidade> findAllDisponiveis();
 
 	public Iterable<Oportunidade> findByEmpresa(Empresa empresa);
+	
 }

@@ -44,7 +44,7 @@ public class DiretorController {
 	
 	@RequestMapping("aprovaoportunidade")
 	public String aprovaOportunidade(@RequestParam("idOportunidade") Long idOportunidade, Model model) {
-		oportunidadeService.apovaOportunidade(idOportunidade);
+		oportunidadeService.aprovaOportunidade(idOportunidade);
 		return "redirect:consultaroportunidades";
 	}
 

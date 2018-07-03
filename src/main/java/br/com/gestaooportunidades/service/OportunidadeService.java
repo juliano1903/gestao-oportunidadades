@@ -19,8 +19,8 @@ public class OportunidadeService {
 	@Autowired
 	private UsuarioOportunidadeService usuarioOportunidadeService;
 	
-	public void save (Oportunidade oportunidade) {
-		oportunidadeRepository.save(oportunidade);
+	public Oportunidade save (Oportunidade oportunidade) {
+		return oportunidadeRepository.save(oportunidade);
 	}
 
 	public Iterable<Oportunidade> findAll() {
@@ -32,7 +32,7 @@ public class OportunidadeService {
 	}
 	
 	@Transactional
-	public void apovaOportunidade(Long idOportunidade) {
+	public void aprovaOportunidade(Long idOportunidade) {
 		oportunidadeRepository.udateDataAprovacao(idOportunidade, new Date());
 	}
 
@@ -49,5 +49,9 @@ public class OportunidadeService {
 
 	public Iterable<Oportunidade> findByIdEmpresa(Long idEmpresa) {
 		return oportunidadeRepository.findByEmpresa(new Empresa().builder().idEmpresa(idEmpresa).build());
+	}
+	
+	public Oportunidade findById(Long idOportunidade) {
+		return oportunidadeRepository.findOne(idOportunidade);
 	}
 }

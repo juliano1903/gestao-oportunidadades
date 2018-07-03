@@ -23,7 +23,7 @@ public class UsuarioOportunidadeService {
 	@Autowired
 	private UsuarioOportunidadeRepository usuarioOportunidadeRepository;
 	
-	public void cadastrarSeOportunidade(Long idOportunidade) {
+	public UsuarioOportunidade cadastrarSeOportunidade(Long idOportunidade) {
 		UsuarioOportunidade usuarioOportunidade = new UsuarioOportunidade()
 				.builder()
 				.usuario(usuarioSession.getUsuario())
@@ -33,7 +33,7 @@ public class UsuarioOportunidadeService {
 								.build())
 				.build();
 		
-		usuarioOportunidadeRepository.save(usuarioOportunidade);
+		return usuarioOportunidadeRepository.save(usuarioOportunidade);
 	}
 
 	public Iterable<UsuarioOportunidade> findAllByIdUsuario() {
